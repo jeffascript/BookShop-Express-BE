@@ -8,20 +8,20 @@ const server = express();
 
 server.use(express.json())
 
-
+server.use(cors())
 const listEndpoints = require("express-list-endpoints");
 
 
-var whitelist = ['http://localhost:3000']
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// var whitelist = ['http://localhost:3000']
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
 
 
@@ -31,9 +31,9 @@ var corsOptions = {
 const port = process.env.PORT || 5000
 
 
-server.use("/books", cors(corsOptions), booksRouter); // listen for book router 
+server.use("/books", booksRouter); // listen for book router 
 
-server.use("/comments", cors(corsOptions), commentsRouter); // listen for comments router
+server.use("/comments", commentsRouter); // listen for comments router
 
 
 

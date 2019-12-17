@@ -1,6 +1,6 @@
 /*
 
-    Upgrade Strive Books API!
+    Upgrade Strive Books API! 
 
     You are in charge of including new features in the Strive Books API.
     You can start from the version we built this morning.
