@@ -68,11 +68,10 @@ router.post("/",
 
        const books = await getBooks()
         const comments = await getCommentsForBook()
-       if 
-        //    ( (!comments.find(x => x.bookId === req.params.id)))
+       if  
+        //    (!comments.find(x => x.bookId === req.params.id))
         //     && 
             (!books.find(x => x.asin === req.body.bookId)) 
-            
             {
             return res.status(404).send("Comment not found")
         }
@@ -101,9 +100,9 @@ router.post("/",
         const books = await getBooks()
         const comments = await getCommentsForBook();
         const book = books.find(b => b.asin === req.params.id);
-        const comments = comments.filter(x => x.bookId === req.params.id)
-        if (comments && book){
-        let combined = {...book, comments}
+        const comment = comments.filter(x => x.bookId === req.params.id)
+        if (comment && book){
+        let combined = {...book, comment}
             res.send(combined)}
         else
             res.status(404).send("Not found")
