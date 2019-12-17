@@ -68,11 +68,12 @@ router.post("/",
 
        const books = await getBooks()
         const comments = await getCommentsForBook()
-       if ( 
-        //    (!comments.find(x => x.bookId === req.params.id))
+       if 
+        //    ( (!comments.find(x => x.bookId === req.params.id)))
         //     && 
             (!books.find(x => x.asin === req.body.bookId)) 
-            ){
+            
+            {
             return res.status(404).send("Comment not found")
         }
        
