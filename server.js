@@ -31,7 +31,7 @@ const listEndpoints = require("express-list-endpoints");
 const port = process.env.PORT || 5000
 
 
-server.use("/books", booksRouter); // listen for book router 
+server.use("/books", booksRouter); // listen for book router --> cors(corsOptions),
 
 server.use("/comments", commentsRouter); // listen for comments router
 
